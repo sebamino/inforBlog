@@ -10,9 +10,10 @@
   <ul>
     <% if user_signed_in? %>
       <li>
-        <p>
-          Hola <strong><%= current_user.email %></strong>
-        </p>
+        <%= current_user.full_name %>
+        <li>
+          <%= link_to 'Editar perfil', edit_user_registration_path %>
+        </li>
       </li>
       <li>
         <%= button_to 'Cerrar sesión', destroy_user_session_path, class: '', method: :delete %>

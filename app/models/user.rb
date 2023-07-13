@@ -19,7 +19,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
   # Validations
   validates :name,      allow_blank: true,
                         length: { minimum: 3, maximum: 25 }
@@ -30,4 +29,8 @@ class User < ApplicationRecord
 
   # Associations
   has_many :posts, dependent: :destroy
+
+  def full_name
+    name.blank? ? email : name
+  end
 end
