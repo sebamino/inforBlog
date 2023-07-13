@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+  # Paginas estaticas
   get 'pages/home'
   get 'pages/terms'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Ruta raiz
+  root "pages#index"
 end
