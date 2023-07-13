@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get 'pages/terms'
 
   # Ruta raiz
-  root "pages#index"
+  root 'pages#home'
 end
