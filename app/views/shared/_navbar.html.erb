@@ -1,0 +1,29 @@
+<nav class="container">
+  <ul>
+    <li>
+      <%= link_to 'Inicio', root_path %>
+    </li>
+    <li>
+      <%= link_to 'Publicaciones', posts_path %>
+    </li>
+  </ul>
+  <ul>
+    <% if user_signed_in? %>
+      <li>
+        <p>
+          Hola <strong><%= current_user.email %></strong>
+        </p>
+      </li>
+      <li>
+        <%= button_to 'Cerrar sesión', destroy_user_session_path, class: '', method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to 'Inicia sesion', new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to 'Registrate', new_user_registration_path %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
